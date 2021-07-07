@@ -64,9 +64,9 @@ def get_data_response(url):
 
 
 if __name__ == '__main__':
-    for i in range(12, 36):
+    for i in range(1, 36):
         urls = get_data_from_file(url_file.format(i))
         for j in range(10):
-            data = multithread_helper(urls[j*10:(j+1)*10], get_data_response, timeout_concurrent_by_second=720, max_workers=50,
+            data = multithread_helper(urls[j*1000:(j+1)*1000], get_data_response, timeout_concurrent_by_second=720, max_workers=50,
                                   debug=False)
             store_json_perline_to_file(data, data_file.format(i), True)
